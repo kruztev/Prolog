@@ -36,3 +36,10 @@ sorted([_]).
 sorted([A, B|T]) :- less(A, B), sorted([B|T]).
 
 sorted2(L) :- not((infix([A,B|L], not(less(A,B))))).
+
+% min(M, L)
+
+min2(H, H, N) :- less(H, N).
+min(M, [M]).
+min(M, [H|T]) :- min(N, T), min2(M, H, N).
+
